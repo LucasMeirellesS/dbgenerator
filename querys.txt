@@ -1,0 +1,71 @@
+
+CREATE TABLE produtos (
+product_id VARCHAR(100) PRIMARY KEY,
+product_category_name VARCHAR(100),
+product_name_lenght DECIMAL,
+product_description_lenght DECIMAL,
+product_photos_qty DECIMAL,
+product_weight_g DECIMAL,
+product_length_cm DECIMAL,
+product_height_cm DECIMAL,
+product_width_cm DECIMAL
+);
+CREATE TABLE geo (
+geolocation_zip_code_prefix INTEGER PRIMARY KEY,
+geolocation_lat DECIMAL,
+geolocation_lng DECIMAL,
+geolocation_city VARCHAR(100),
+geolocation_state VARCHAR(100)
+);
+CREATE TABLE clientes (
+customer_id VARCHAR(100) PRIMARY KEY,
+customer_unique_id VARCHAR(100),
+customer_zip_code_prefix INT,
+customer_city VARCHAR(100),
+customer_state VARCHAR(100)
+);
+CREATE TABLE itens (
+order_id VARCHAR(100) PRIMARY KEY,
+order_item_id INT,
+product_id VARCHAR(100),
+seller_id VARCHAR(100),
+shipping_limit_date VARCHAR(100),
+price DECIMAL,
+freight_value DECIMAL
+);
+CREATE TABLE pagamentos (
+order_id VARCHAR(100) PRIMARY KEY,
+payment_sequential INT,
+payment_type VARCHAR(100),
+payment_installments INT,
+payment_value DECIMAL
+);
+CREATE TABLE reviews (
+review_id VARCHAR(100) PRIMARY KEY,
+order_id VARCHAR(100),
+review_score INT,
+review_comment_title VARCHAR(100),
+review_comment_message VARCHAR(100),
+review_creation_date VARCHAR(100),
+review_answer_timestamp VARCHAR(100)
+);
+CREATE TABLE pedidos (
+order_id VARCHAR(100) PRIMARY KEY,
+customer_id VARCHAR(100),
+order_status VARCHAR(100),
+order_purchase_timestamp VARCHAR(100),
+order_approved_at VARCHAR(100),
+order_delivered_carrier_date VARCHAR(100),
+order_delivered_customer_date VARCHAR(100),
+order_estimated_delivery_date VARCHAR(100)
+);
+CREATE TABLE vendedores (
+seller_id VARCHAR(100) PRIMARY KEY,
+seller_zip_code_prefix INT,
+seller_city VARCHAR(100),
+seller_state VARCHAR(100)
+);
+CREATE TABLE categoria_produto (
+product_category_name VARCHAR(100) PRIMARY KEY,
+product_category_name_english VARCHAR(100)
+);
